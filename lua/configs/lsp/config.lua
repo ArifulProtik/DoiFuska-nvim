@@ -64,7 +64,7 @@ local on_attach = function(client, bufnr)
 	-- using 'filipdutescu/renamer.nvim' for rename
 	-- buf_set_keymap('n', '<space>rn',	'<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 	buf_set_keymap("n", "<Space>r", "<cmd>Telescope lsp_references<CR>", options)
-	buf_set_keymap("n", "<Space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", options)
+	buf_set_keymap("n", "<Space>f", "<cmd>lua vim.lsp.buf.format()<CR>", options)
 
 	buf_set_keymap("n", "<Space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", options)
 	buf_set_keymap("x", "<Space>a", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", options)
@@ -204,7 +204,7 @@ end
 -- make sure `lspconfig` is not loaded after `mason-lspconfig`.
 -- Also, make sure not to set up any servers via `lspconfig` _before_ calling `mason-lspconfig`'s setup function.
 -- Format on save
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
 -- require("mason-lspconfig").setup_handlers({
 local import_mlspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")

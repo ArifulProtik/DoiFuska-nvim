@@ -26,3 +26,4 @@ keymap(
 	'<ESC><CMD>lua require("Comment.api").toggle.toggle_current_linewise_op(vim.fn.visualmode())<CR>',
 	options
 )
+keymap("n", "<S-r>", ":LspRestart<CR>", options)
